@@ -10,7 +10,7 @@ const Home = () => {
                 <CustomCard>
                     <div className="flex flex-col items-center">
                         <h1 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl" style={{ color: '#5e49e7' }}>
-                            Olá, {user?.username}!
+                            Seja bem-vindo, {user?.username}.
                         </h1>
                     </div>
                 </CustomCard>

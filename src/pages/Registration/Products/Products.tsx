@@ -38,7 +38,7 @@ const Products = () => {
                 <CustomCard>
                     <div>
                         <div className="flex flex-row justify-between">
-                            <h1 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl" style={{ color: '#5e49e7' }}>
+                            <h1 className="scroll-m-20 text-2xl font-bold tracking-tight lg:text-2xl">
                                 Produtos
                             </h1>
                             <div className="space-x-2">

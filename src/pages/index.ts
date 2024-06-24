@@ -4,3 +4,6 @@ export * from './Register'
 
 export * from './Registration'
 export * from './Shop'
+
+export * from './Users'
+export * from './Dashboard'
