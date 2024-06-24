@@ -38,7 +38,7 @@ function PrivateRoute(props: PrivateRouteProps) {
         <ErrorBoundary>
             <Suspense fallback={<Loader />}>
                 <Layout className='min-h-screen'>
-                    <Sider style={{ outline: '1px solid #969696' }}>
+                    <Sider>
                         <SiderComponent />
                     </Sider>
                     <Layout>
