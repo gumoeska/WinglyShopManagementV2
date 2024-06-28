@@ -1,12 +1,11 @@
 import { ReactNode, useEffect, useState } from "react"
-import { AuthContext, LoginAccount, User } from "../../contexts";
+import { AuthContext, LoginCredentials, RegisterCredentials, User } from "../../contexts";
 import { useLocation, useNavigate } from "react-router-dom";
 import { getToken, removeToken, setToken } from "../../util/jwtToken";
 import { api } from "../../services/api";
 import { AxiosError } from "axios";
 import { setAuthorizationHeader } from "../../services/interceptors";
 import paths from "../../routers/paths";
-import { RegisterAccount } from "../../contexts/auth/AuthContext";
 import { message } from "antd";
 
 type AuthProviderProps = {
@@ -31,7 +30,7 @@ const AuthProvider = (props: AuthProviderProps) => {
   const navigate = useNavigate();
   const { pathname } = useLocation();
 
-  async function signIn(params: LoginAccount) {
+  async function LoginAccount(params: LoginCredentials) {
     const { login, password } = params;
 
     try {
@@ -53,18 +52,31 @@ const AuthProvider = (props: AuthProviderProps) => {
     }
   }
 
-  async function registerNewAccount(account: RegisterAccount): Promise<boolean | undefined> {
+  async function RegisterAccount(account: RegisterCredentials): Promise<boolean | undefined> {
     const { login, email, password, name, surname, image, phone } = account;
 
     try {
       const response = await api.post('/auth/register', {
         login, email, password, name, surname, image, phone
       });
+
       const result = Boolean(response.data);
+
+      messageApi.open({
+        type: 'success',
+        content: 'Conta criada com sucesso!'
+      });
+
+      navigate('/entrar');
 
       return result;
 
     } catch (error) {
+      messageApi.open({
+        type: 'error',
+        content: 'Ocorreu um erro ao criar a conta.'
+      });
+
       return false;
     }
   }
@@ -115,8 +127,8 @@ const AuthProvider = (props: AuthProviderProps) => {
         isAuthenticated,
         user,
         loadingUserData,
-        signIn,
-        registerNewAccount,
+        LoginAccount,
+        RegisterAccount,
         signOut
       }}>
       {contextHolder}

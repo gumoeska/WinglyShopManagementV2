@@ -1,2 +1,2 @@
-export type { User, LoginAccount, AuthContextData } from './AuthContext'
+export type { User, LoginCredentials, RegisterCredentials, AuthContextData } from './AuthContext'
 export { AuthContext } from './AuthContext'

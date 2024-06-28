@@ -1,7 +1,7 @@
 import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, UserOutlined } from "@ant-design/icons";
 import { Button, Card, Divider, Form, FormProps, Input, message } from "antd";
 import useSession from "../../hooks/useSession";
-import { LoginAccount } from "../../contexts";
+import { LoginCredentials } from "../../contexts";
 
 type FieldType = {
     login?: string,
@@ -9,7 +9,7 @@ type FieldType = {
 }
 
 const Login = () => {
-    const { signIn, isAuthenticated } = useSession();
+    const { LoginAccount, isAuthenticated } = useSession();
     const [messageApi, contextHolder] = message.useMessage();
 
     const statusMessage = (failed: boolean) => {
@@ -26,9 +26,9 @@ const Login = () => {
         }
     }
 
-    async function handleSubmit(credentials: LoginAccount) {
+    async function handleSubmit(credentials: LoginCredentials) {
         try {
-            await signIn(credentials);
+            await LoginAccount(credentials);
             if (isAuthenticated) {
                 statusMessage(false);
             } else {
@@ -42,7 +42,7 @@ const Login = () => {
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         console.log('Success:', values);
 
-        const credentials: LoginAccount = {
+        const credentials: LoginCredentials = {
             login: values.login ?? '',
             password: values.password ?? ''
         }

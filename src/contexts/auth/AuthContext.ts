@@ -5,12 +5,12 @@ export type User = {
     username: string,
 }
 
-export type LoginAccount = {
+export type LoginCredentials = {
     login: string,
     password: string,
 }
 
-export type RegisterAccount = {
+export type RegisterCredentials = {
     login: string,
     email: string,
     password: string,
@@ -24,8 +24,8 @@ export type AuthContextData = {
     user?: User,
     isAuthenticated: boolean,
     loadingUserData: boolean,
-    signIn: (account: LoginAccount) => Promise<void | AxiosError>,
-    registerNewAccount: (account: RegisterAccount) => Promise<boolean | undefined>,
+    LoginAccount: (account: LoginCredentials) => Promise<void | AxiosError>,
+    RegisterAccount: (account: RegisterCredentials) => Promise<boolean | undefined>,
     signOut: () => void
 }
 

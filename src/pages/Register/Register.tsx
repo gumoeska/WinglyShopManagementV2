@@ -1,6 +1,6 @@
 import { EyeInvisibleOutlined, EyeTwoTone, LockOutlined, MailOutlined, UserAddOutlined, UserOutlined } from "@ant-design/icons";
-import { Button, Card, Divider, Form, FormProps, Input, message } from "antd";
-import { RegisterAccount } from "../../contexts/auth/AuthContext";
+import { Button, Card, Divider, Form, FormProps, Input } from "antd";
+import { RegisterCredentials } from "../../contexts/auth/AuthContext";
 import useSession from "../../hooks/useSession";
 
 type FieldType = {
@@ -10,40 +10,15 @@ type FieldType = {
 }
 
 const Register = () => {
-    const { registerNewAccount } = useSession();
-    const [messageApi, contextHolder] = message.useMessage();
+    const { RegisterAccount } = useSession();
 
-    const statusMessage = (failed: boolean) => {
-        if (failed) {
-            messageApi.open({
-                type: 'error',
-                content: 'Ocorreu um erro ao criar a conta.'
-            });
-        } else {
-            messageApi.open({
-                type: 'success',
-                content: 'Conta criada com sucesso!'
-            });
-        }
-    }
-
-    async function handleSubmit(accountData: RegisterAccount) {
-        try {
-            const result = await registerNewAccount(accountData);
-
-            if (result === true) {
-                statusMessage(false);
-            } else {
-                statusMessage(true);
-            }
-        } catch (error) {
-            statusMessage(true);
-        }
+    async function handleSubmit(accountData: RegisterCredentials) {
+            await RegisterAccount(accountData);
     }
     const onFinish: FormProps<FieldType>['onFinish'] = (values) => {
         console.log('Success:', values);
 
-        const accountData: RegisterAccount = {
+        const accountData: RegisterCredentials = {
             login: values.login ?? '',
             email: values.email ?? '',
             password: values.password ?? '',
@@ -69,7 +44,6 @@ const Register = () => {
 
     return (
         <main className="min-h-screen flex flex-col items-center justify-center" style={{ backgroundColor: '#f5f5f5' }}>
-            {contextHolder}
             <div className="flex flex-col mb-10 items-center">
                 <img src="/src/assets/images/winglyShopLogoColor.png" width={60} height={60} className="m-0" />
                 <div>
