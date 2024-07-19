@@ -3,9 +3,13 @@ import CustomCard from "../../../components/CustomCard";
 import { useEffect, useState } from "react";
 import { GetProducts } from "../../../services/registration/products/productsRequests";
 import { Product } from "../../../types";
+import { useNavigate } from "react-router-dom";
+import useRoutePaths from "../../../hooks/useRoutePaths";
 
 const Products = () => {
     const [data, setData] = useState<Product[]>([]);
+    const navigate = useNavigate();
+    const routePath = useRoutePaths();
 
     const columns = [
         { key: 1, title: 'Código', dataIndex: 'code' },
@@ -22,6 +26,10 @@ const Products = () => {
         }
 
         setData(dataRequest);
+    }
+
+    const AddProduct = () => {
+        navigate(routePath.PRODUCTS_CREATE_PATH);
     }
 
     useEffect(() => {
@@ -42,7 +50,7 @@ const Products = () => {
                                 Produtos
                             </h1>
                             <div className="space-x-2">
-                                <Button type="primary">Novo Produto</Button>
+                                <Button type="primary" onClick={AddProduct}>Novo Produto</Button>
                             </div>
                         </div>
                         <Divider />

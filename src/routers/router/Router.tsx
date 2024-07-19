@@ -14,6 +14,7 @@ import Prospect from "../../pages/Dashboard/Prospect";
 import Sales from "../../pages/Dashboard/Sales";
 import Accounts from "../../pages/Users/Accounts";
 import Authorizations from "../../pages/Users/Authorizations";
+import AddProduct from "../../pages/Registration/Products/AddProduct";
 
 const Router = () => {
     const {
@@ -22,6 +23,7 @@ const Router = () => {
         REGISTER_PATH,
         HOME_PATH,
         PRODUCTS_PATH,
+        PRODUCTS_CREATE_PATH,
         CATEGORIES_PATH,
         ORDERS_PATH,
         DELIVERIES_PATH,
@@ -41,6 +43,7 @@ const Router = () => {
             <Route path={MAIN_PATH} element={ <PrivateRoute> <App /> </PrivateRoute> } />
             <Route path={HOME_PATH} element={ <PrivateRoute> <Home /> </PrivateRoute> } />
             <Route path={PRODUCTS_PATH} element={ <PrivateRoute> <Products /> </PrivateRoute> } />
+            <Route path={PRODUCTS_CREATE_PATH} element={ <PrivateRoute> <AddProduct /> </PrivateRoute> } />
             <Route path={CATEGORIES_PATH} element={ <PrivateRoute> <Categories /> </PrivateRoute> } />
             <Route path={ORDERS_PATH} element={ <PrivateRoute> <Orders /> </PrivateRoute> } />
             <Route path={DELIVERIES_PATH} element={ <PrivateRoute> <Deliveries /> </PrivateRoute> } />

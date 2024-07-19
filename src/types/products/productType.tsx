@@ -9,3 +9,13 @@ export type Product = {
     isActive: boolean,
     hasStock: boolean
 }
+
+export type ProductRegistration = {
+    code: string,
+    description: string,
+    price: number,
+    hasStock: boolean,
+    isActive: boolean,
+    idCategory: number,
+    imageUrl: string
+}
