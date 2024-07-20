@@ -3,9 +3,14 @@ import CustomCard from "../../../components/CustomCard";
 import { useEffect, useState } from "react";
 import { GetCategories } from "../../../services/registration/categories/categoriesRequests";
 import { Category } from "../../../types/categories";
+import { useNavigate } from "react-router-dom";
+import useRoutePaths from "../../../hooks/useRoutePaths";
 
 const Categories = () => {
     const [data, setData] = useState<Category[]>([]);
+
+    const navigate = useNavigate();
+    const path = useRoutePaths();
 
     const columns = [
         { key: 1, title: 'Código', dataIndex: 'code' },
@@ -40,7 +45,7 @@ const Categories = () => {
                                 Categorias
                             </h1>
                             <div className="space-x-2">
-                                <Button type="primary">Nova Categoria</Button>
+                                <Button type="primary" onClick={() => navigate(path.CATEGORIES_CREATE_PATH)}>Nova Categoria</Button>
                             </div>
                         </div>
                         <Divider />

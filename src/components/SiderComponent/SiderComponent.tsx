@@ -9,16 +9,16 @@ const SiderComponent = () => {
     const [current, setCurrent] = useState('/inicio');
     const navigate = useNavigate();
 
-    const sideMenuStyle = {
-        borderRadius: "16px",
-        boxShadow: "2px 2px 4px 0px #bcbcbc"
-    };
+    // const sideMenuStyle = {
+    //     borderRadius: "16px",
+    //     boxShadow: "2px 2px 4px 0px #bcbcbc"
+    // };
 
     const items: MenuItem[] = [
         {
             label: 'Início',
             key: '/inicio',
-            icon: <HomeOutlined />
+            icon: <HomeOutlined />,
         },
         {
             label: 'Cadastro',
@@ -88,17 +88,19 @@ const SiderComponent = () => {
     };
 
     return (
-        <div className="flex flex-col" style={sideMenuStyle}>
-            <div className="flex flex-col my-5 items-center">
-                <img src="/src/assets/images/winglyShopLogoColor.png" width={50} height={50} className="m-0" />
-                <div>
-                    <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0" style={{ color: '#5e49e7' }}>
-                        Wingly Shop
-                    </h2>
+        <div className="fixed p-6">
+            <div className="flex flex-col">
+                <div className="flex flex-col my-5 items-center">
+                    <img src="/src/assets/images/winglyShopLogoColor.png" width={50} height={50} className="m-0" />
+                    <div>
+                        <h2 className="scroll-m-20 text-2xl font-semibold tracking-tight first:mt-0" style={{ color: '#5e49e7' }}>
+                            Wingly Shop
+                        </h2>
+                    </div>
                 </div>
-            </div>
-            <div>
-                <Menu className="min-h-screen" onClick={onClick} selectedKeys={[current]} mode="inline" items={items} defaultSelectedKeys={['/inicio']}/>
+                <div>
+                    <Menu className="min-h-screen" style={{ border: 0 }} onClick={onClick} selectedKeys={[current]} mode="inline" items={items} defaultSelectedKeys={['/inicio']} />
+                </div>
             </div>
         </div>
     );

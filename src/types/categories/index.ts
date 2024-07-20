@@ -1,1 +1,1 @@
-export type { Category } from './categoryType'
+export type { Category, CategoryRegistration } from './categoryType'

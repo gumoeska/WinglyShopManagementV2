@@ -9,7 +9,15 @@ export const GetProducts = async (): Promise<Product[] | undefined> => {
 }
 
 export const CreateProduct = async (productRegistration: ProductRegistration): Promise<boolean | undefined> => {
-    const response = await api.post('/products/create', { productRegistration });
+    const response = await api.post('/products/create', { 
+        Code: productRegistration.code,
+        Description: productRegistration.description,
+        Price: productRegistration.price,
+        HasStock: productRegistration.hasStock,
+        IsActive: productRegistration.isActive,
+        IdCategory: productRegistration.idCategory,
+        ImageUrl: productRegistration.imageUrl
+     });
     const result: boolean = response.data;
 
     return result;

@@ -9,6 +9,8 @@ const MAIN_PATH = '/';
 const LOGIN_PATH = '/entrar';
 const REGISTER_PATH = '/registrar';
 
+const MY_ACCOUNT_PATH = '/minha-conta';
+
 ///////////
 // Pages //
 ///////////
@@ -18,10 +20,11 @@ const HOME_PATH = '/inicio';
 // Registration //
 // Products
 const PRODUCTS_PATH = '/produtos';
-const PRODUCTS_CREATE_PATH = '/produtos/cadastro'
+const PRODUCTS_CREATE_PATH = '/produtos/cadastro';
 
 // Categories
 const CATEGORIES_PATH = '/categorias';
+const CATEGORIES_CREATE_PATH = '/categorias/cadastro';
 
 // Shop //
 // Orders
@@ -48,11 +51,14 @@ const paths = {
     MAIN_PATH,
     LOGIN_PATH,
 
+    MY_ACCOUNT_PATH,
+
     HOME_PATH,
     REGISTER_PATH,
     PRODUCTS_PATH,
     PRODUCTS_CREATE_PATH,
     CATEGORIES_PATH,
+    CATEGORIES_CREATE_PATH,
 
     ORDERS_PATH,
     DELIVERIES_PATH,

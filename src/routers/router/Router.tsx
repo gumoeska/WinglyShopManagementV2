@@ -15,16 +15,20 @@ import Sales from "../../pages/Dashboard/Sales";
 import Accounts from "../../pages/Users/Accounts";
 import Authorizations from "../../pages/Users/Authorizations";
 import AddProduct from "../../pages/Registration/Products/AddProduct";
+import AddCategory from "../../pages/Registration/Categories/AddCategories/AddCategory";
+import MyAccount from "../../pages/Account/MyAccount";
 
 const Router = () => {
     const {
         MAIN_PATH,
+        MY_ACCOUNT_PATH,
         LOGIN_PATH,
         REGISTER_PATH,
         HOME_PATH,
         PRODUCTS_PATH,
         PRODUCTS_CREATE_PATH,
         CATEGORIES_PATH,
+        CATEGORIES_CREATE_PATH,
         ORDERS_PATH,
         DELIVERIES_PATH,
         ACCOUNTS_PATH,
@@ -40,11 +44,13 @@ const Router = () => {
             <Route path={REGISTER_PATH} element={ <PublicRoute> <Register /> </PublicRoute> } />
 
             {/* Private */}
+            <Route path={MY_ACCOUNT_PATH} element={ <PrivateRoute> <MyAccount /> </PrivateRoute> } />
             <Route path={MAIN_PATH} element={ <PrivateRoute> <App /> </PrivateRoute> } />
             <Route path={HOME_PATH} element={ <PrivateRoute> <Home /> </PrivateRoute> } />
             <Route path={PRODUCTS_PATH} element={ <PrivateRoute> <Products /> </PrivateRoute> } />
             <Route path={PRODUCTS_CREATE_PATH} element={ <PrivateRoute> <AddProduct /> </PrivateRoute> } />
             <Route path={CATEGORIES_PATH} element={ <PrivateRoute> <Categories /> </PrivateRoute> } />
+            <Route path={CATEGORIES_CREATE_PATH} element={ <PrivateRoute> <AddCategory /> </PrivateRoute> } />
             <Route path={ORDERS_PATH} element={ <PrivateRoute> <Orders /> </PrivateRoute> } />
             <Route path={DELIVERIES_PATH} element={ <PrivateRoute> <Deliveries /> </PrivateRoute> } />
             <Route path={PROSPECT_PATH} element={ <PrivateRoute> <Prospect /> </PrivateRoute> } />

@@ -1,9 +1,17 @@
-import { Avatar, Button, Dropdown, MenuProps, Space } from "antd";
+import { Avatar, Dropdown, MenuProps } from "antd";
 import useSession from "../../hooks/useSession";
-import { DownOutlined } from "@ant-design/icons";
+import { useNavigate } from "react-router-dom";
+import useRoutePaths from "../../hooks/useRoutePaths";
 
 const HeaderComponent = () => {
     const { user, signOut } = useSession();
+    
+    const navigate = useNavigate();
+    const path = useRoutePaths();
+    
+    const goToMyAccount = () => {
+        navigate(path.MY_ACCOUNT_PATH);
+    }
 
     const signOutAccount = () => {
         signOut();
@@ -11,7 +19,7 @@ const HeaderComponent = () => {
 
     const items: MenuProps['items'] = [
         {
-            label: <a href="">Minha Conta</a>,
+            label: <a onClick={goToMyAccount}>Minha Conta</a>,
             key: '0',
         },
         {
