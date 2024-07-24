@@ -35,7 +35,7 @@ const HeaderComponent = () => {
         <div>
             <div className="flex flex-row items-end justify-end space-x-4">
                 <div>
-                    <Dropdown menu={{ items }} trigger={['click']}>
+                    <Dropdown menu={{ items }} trigger={['click']} className="cursor-grab">
                         <Avatar size={40} style={{ backgroundColor: '#5e49e7' }}>
                             <a className="cursor-grab">
                                 {user?.username[0]}

@@ -75,7 +75,7 @@ const SiderComponent = () => {
                     key: '/vendas'
                 },
                 {
-                    label: 'Prospecção de Clientes',
+                    label: 'Prospecção',
                     key: '/prospeccao'
                 }
             ]

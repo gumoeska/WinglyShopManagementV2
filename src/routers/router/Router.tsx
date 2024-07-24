@@ -2,21 +2,26 @@ import { Route, Routes } from "react-router-dom";
 import useRoutePaths from "../../hooks/useRoutePaths";
 import PrivateRoute from "../private/PrivateRoute";
 import PublicRoute from "../public/PublicRoute";
-import Login from "../../pages/Login";
-import Register from "../../pages/Register";
 import App from "../../App";
-import Home from "../../pages/Home";
-import Products from "../../pages/Registration/Products";
-import Categories from "../../pages/Registration/Categories";
-import Orders from "../../pages/Shop/Orders";
-import Deliveries from "../../pages/Shop/Deliveries";
-import Prospect from "../../pages/Dashboard/Prospect";
-import Sales from "../../pages/Dashboard/Sales";
-import Accounts from "../../pages/Users/Accounts";
-import Authorizations from "../../pages/Users/Authorizations";
-import AddProduct from "../../pages/Registration/Products/AddProduct";
-import AddCategory from "../../pages/Registration/Categories/AddCategories/AddCategory";
-import MyAccount from "../../pages/Account/MyAccount";
+import { lazy } from "react";
+
+const Login = lazy(() => import('../../pages/Login'));
+const Register = lazy(() => import('../../pages/Register'));
+const MyAccount = lazy(() => import('../../pages/Account/MyAccount'));
+
+const Products = lazy(() => import('../../pages/Registration/Products'));
+const AddProduct = lazy(() => import('../../pages/Registration/Products/AddProduct'));
+
+const Categories = lazy(() => import('../../pages/Registration/Categories'));
+const AddCategory = lazy(() => import('../../pages/Registration/Categories/AddCategories/AddCategory'));
+
+const Home = lazy(() => import('../../pages/Home'));
+const Orders = lazy(() => import('../../pages/Shop/Orders'));
+const Deliveries = lazy(() => import('../../pages/Shop/Deliveries'));
+const Sales = lazy(() => import('../../pages/Dashboard/Sales'));
+const Authorizations = lazy(() => import('../../pages/Users/Authorizations'));
+const Prospect = lazy(() => import('../../pages/Dashboard/Prospect'));
+const Accounts = lazy(() => import('../../pages/Users/Accounts'));
 
 const Router = () => {
     const {
